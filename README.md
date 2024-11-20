@@ -2,6 +2,8 @@
 
 This is a Python Flask web application that monitors and logs messages from a WebSocket feed. It provides a simple interface to connect, disconnect, and view messages in real-time.
 
+![synthwave BSky Websocket Feed Monitor](Bluesky-WebSocket-Feed-Monitor.png)
+
 ## Features
 
 - **Connect to WebSocket**: Establish a connection to a predefined WebSocket URL.
