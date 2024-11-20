@@ -1,23 +1,104 @@
+/* Body: Synthwave dark gradient background */
 body {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: 'Press Start 2P', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #ffffff;
     max-width: 800px;
     margin: 20px auto;
     padding: 0 20px;
+    text-align: center; /* Center align all content */
 }
+
+/* Title styling */
+h1 {
+    font-size: 2rem;
+    color: #ff007c; /* Neon pink */
+    text-shadow: 0 0 10px #ff007c, 0 0 20px #ff4d94;
+    margin-bottom: 20px;
+}
+
+/* Controls section styling */
+.controls {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Buttons with glowing neon effect */
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: linear-gradient(90deg, #ff007c, #7a00ff);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 0, 124, 0.75), 0 0 25px rgba(122, 0, 255, 0.75);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 0, 124, 1), 0 0 50px rgba(122, 0, 255, 1);
+}
+
+/* Output textarea with retro terminal look */
 #output {
     width: 100%;
     height: 400px;
     margin-top: 20px;
-    padding: 10px;
+    padding: 15px;
     font-family: monospace;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    font-size: 0.95rem;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    color: #00fff7; /* Neon cyan text */
+    border: 2px solid #7a00ff;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 255, 247, 0.75);
+    resize: none;
+    overflow-y: auto;
 }
-.controls {
-    margin: 20px 0;
+
+/* Glow effect for the textarea focus */
+#output:focus {
+    box-shadow: 0 0 25px rgba(0, 255, 247, 1);
 }
-button {
-    padding: 8px 16px;
-    margin-right: 10px;
-    cursor: pointer;
+
+/* Scrollbar customization */
+#output::-webkit-scrollbar {
+    width: 10px;
+}
+#output::-webkit-scrollbar-thumb {
+    background: #ff007c;
+    border-radius: 5px;
+}
+#output::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Toggle filter label */
+label {
+    font-size: 1rem;
+    color: #ffe100; /* Neon yellow */
+}
+
+/* Checkbox toggle */
+input[type="checkbox"] {
+    accent-color: #ff007c; /* Neon pink for checkbox */
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
 }

@@ -11,6 +11,15 @@ socketio = SocketIO(app)
 def index():
     return render_template('index.html')
 
+async def filter_and_forward_messages(ws, keyword):
+    """Filter messages containing the keyword and forward them to the client."""
+    try:
+        async for message in ws:
+            if keyword in message:  # Check if the keyword is in the message
+                socketio.emit('log', {'message': message})
+    except Exception as e:
+        socketio.emit('log', {'message': f'Error: {str(e)}'})
+
 @socketio.on('connect_to_ws')
 def connect_to_ws(data):
     """Handle connection to the external WebSocket."""
@@ -19,15 +28,18 @@ def connect_to_ws(data):
         emit('log', {'message': 'No WebSocket URL provided!'})
         return
 
+    # Keyword to filter messages
+    keyword = " AI "
+
     async def external_ws():
         try:
             async with websockets.connect(url) as ws:
                 emit('log', {'message': f'Connected to {url}'})
-                async for message in ws:
-                    emit('log', {'message': f'Received: {message}'})
+                await filter_and_forward_messages(ws, keyword)
         except Exception as e:
             emit('log', {'message': f'Error: {str(e)}'})
 
+    # Run the external WebSocket connection
     asyncio.run(external_ws())
 
 @socketio.on('disconnect_from_ws')

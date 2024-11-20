@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bluesky WebSocket Feed Monitor</title>
+    <!-- Add Orbitron font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.0/socket.io.min.js"></script>
 </head>
 <body>
@@ -13,7 +18,7 @@
         <button id="connect">Connect</button>
         <button id="disconnect">Disconnect</button>
         <button id="clear">Clear Log</button>
-    </div>
+    </div>    
     <textarea id="output" readonly></textarea>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
